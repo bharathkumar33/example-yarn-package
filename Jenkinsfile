@@ -4,11 +4,10 @@ pipeline{
         stage("run frontend"){
             steps {
                 echo "executing yarn"
-            }
-        }
-        stage("run backend"){
-            steps {
-                echo "executing gradle"
+                nodejs("Node"){
+                    sh 'yarn install'
+                    sh 'yarn run test'
+                }
             }
         }
     }
