@@ -5,6 +5,7 @@ pipeline{
             steps {
                 echo "executing yarn"
                 nodejs("Node"){
+                    sh 'yarn install'
                     sh 'yarn build-storybook'
                 }
             }
